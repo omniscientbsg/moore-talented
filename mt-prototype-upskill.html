@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upskill AI - Moore Talented Academy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Jost', 'sans-serif'] },
+                    colors: {
+                        mt: {
+                            blue: '#1967d2',
+                            dark: '#0d4a9e',
+                            light: '#f0f5f7',
+                            gray: '#696969',
+                            navy: '#0f172a',
+                            accent: '#10b981',
+                            purple: '#8b5cf6'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-gradient { background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%); position: relative; overflow: hidden; }
+        
+        .course-card {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+        }
+        .course-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1);
+            border-color: #8b5cf6;
+        }
+        .course-img {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.7s ease;
+        }
+        .course-card:hover .course-img {
+            transform: scale(1.05);
+        }
+        .img-wrapper {
+            overflow: hidden;
+            position: relative;
+        }
+        .img-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
+            opacity: 0.8;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 9999px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%);
+            border-radius: 9999px;
+        }
+
+        .filter-btn.active {
+            background-color: #0f172a;
+            color: white;
+            border-color: #0f172a;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #1967d2; }
+    </style>
+</head>
+<body class="text-slate-800 antialiased bg-slate-50 overflow-x-hidden">
+
+    <!-- NAVIGATION -->
+    
+
+    <!-- HERO SECTION -->
+    <section class="hero-gradient pt-12 md:pt-10 md:pt-16 pb-24 px-6 text-white relative">
+        <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#8b5cf6 1px, transparent 1px); background-size: 40px 40px;"></div>
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-mt-purple opacity-10 filter blur-[100px]"></div>
+
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+            <div>
+                <div class="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full text-xs font-bold text-purple-300 tracking-widest uppercase shadow-sm border border-white/20 mb-6 backdrop-blur-md">
+                    <i class="fa-solid fa-graduation-cap"></i> The Academy
+                </div>
+                <h1 class="text-5xl lg:text-7xl font-extrabold mb-6 leading-tight tracking-tight">Elevate Your Global <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Career.</span></h1>
+                <p class="text-xl text-slate-300 mb-10 leading-relaxed font-light">Stop failing embassy interviews. Access AI-driven modules designed to prepare you for the U.S. workplace, perfect your professional English, and guarantee visa readiness.</p>
+                
+                <div class="bg-white/10 backdrop-blur-md p-2 rounded-2xl flex items-center gap-2 border border-white/20 max-w-md shadow-2xl">
+                    <i class="fa-solid fa-magnifying-glass text-slate-400 ml-3"></i>
+                    <input type="text" placeholder="Search courses (e.g., Embassy Prep)..." class="bg-transparent border-none text-white placeholder-slate-400 focus:outline-none flex-1 py-2">
+                    <button class="bg-gradient-to-r from-mt-blue to-mt-purple text-white px-6 py-3 rounded-xl font-bold hover:shadow-lg transition-all">Search</button>
+                </div>
+            </div>
+
+            <!-- UI Mockup: Interactive AI Tutor -->
+            <div class="hidden lg:block relative">
+                <div class="bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl overflow-hidden transform rotate-2 hover:rotate-0 transition-transform duration-500 max-w-md ml-auto">
+                    <div class="bg-slate-800 px-6 py-4 border-b border-slate-700 flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-r from-mt-blue to-mt-purple flex items-center justify-center text-xs"><i class="fa-solid fa-robot"></i></div>
+                            <span class="font-bold text-white text-sm">AI Interview Coach</span>
+                        </div>
+                        <div class="flex gap-1">
+                            <div class="w-2 h-2 rounded-full bg-red-500"></div>
+                            <div class="w-2 h-2 rounded-full bg-yellow-500"></div>
+                            <div class="w-2 h-2 rounded-full bg-green-500"></div>
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="bg-slate-800 p-3 rounded-lg text-sm text-slate-300 border border-slate-700 w-4/5">
+                            Good morning. The Consular Officer will ask: <strong class="text-white">"What are your plans after finishing this J-1 internship?"</strong>
+                        </div>
+                        <div class="bg-mt-blue text-white p-3 rounded-lg text-sm w-4/5 ml-auto border border-blue-600">
+                            I plan to return to my home country to complete my final year of university.
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-green-400 mt-2 bg-green-400/10 p-2 rounded border border-green-400/20">
+                            <i class="fa-solid fa-check-circle"></i> Excellent answer. Proves non-immigrant intent.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACTIVE PROGRESS (Mockup) -->
+    <section class="max-w-7xl mx-auto px-6 relative z-20 -mt-8 mb-12">
+        <div class="bg-white rounded-2xl shadow-xl border border-slate-100 p-6 md:p-8 flex flex-col md:flex-row items-center gap-8">
+            <div class="w-16 h-16 rounded-2xl bg-mt-purple/10 text-mt-purple flex items-center justify-center text-2xl shrink-0">
+                <i class="fa-solid fa-person-chalkboard"></i>
+            </div>
+            <div class="flex-1 w-full">
+                <div class="flex justify-between items-end mb-2">
+                    <div>
+                        <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">In Progress</div>
+                        <h3 class="text-lg font-bold text-slate-900">U.S. Workplace Culture 101</h3>
+                    </div>
+                    <span class="text-mt-purple font-extrabold text-xl">65%</span>
+                </div>
+                <div class="progress-bar mb-3"><div class="progress-fill" style="width: 65%;"></div></div>
+                <div class="text-sm text-slate-500"><i class="fa-solid fa-clock mr-1 text-slate-400"></i> Next Module: Direct Communication in America (15 mins)</div>
+            </div>
+            <button class="w-full md:w-auto bg-slate-900 text-white px-8 py-3 rounded-xl font-bold hover:bg-slate-800 transition-colors shrink-0">Continue Module</button>
+        </div>
+    </section>
+
+    <!-- COURSE GRID -->
+    <section class="py-12 px-6 max-w-7xl mx-auto">
+        
+        <!-- Filters -->
+        <div class="flex flex-wrap gap-3 items-center mb-12 border-b border-slate-200 pb-6">
+            <span class="text-sm font-bold text-slate-400 uppercase tracking-wider mr-4">Filters:</span>
+            <button class="px-5 py-2 rounded-full border border-slate-200 text-sm font-bold filter-btn active transition-colors">All Modules</button>
+            <button class="px-5 py-2 rounded-full bg-white border border-slate-200 text-slate-600 text-sm font-bold hover:border-slate-400 transition-colors">Visa Readiness <span class="ml-1 text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-500">4</span></button>
+            <button class="px-5 py-2 rounded-full bg-white border border-slate-200 text-slate-600 text-sm font-bold hover:border-slate-400 transition-colors">English Prep <span class="ml-1 text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-500">12</span></button>
+            <button class="px-5 py-2 rounded-full bg-white border border-slate-200 text-slate-600 text-sm font-bold hover:border-slate-400 transition-colors">Industry Certs <span class="ml-1 text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-500">8</span></button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Course 1 -->
+            <div class="course-card group">
+                <div class="img-wrapper relative">
+                    <span class="absolute top-4 right-4 bg-gradient-to-r from-amber-400 to-orange-400 text-white text-xs font-extrabold px-3 py-1 rounded-full z-20 shadow-md flex items-center gap-1"><i class="fa-solid fa-fire text-[10px]"></i> Bestseller</span>
+                    <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <!-- Play overlay on hover -->
+                    <div class="absolute inset-0 bg-mt-navy/40 opacity-0 group-hover:opacity-100 transition-opacity z-10 flex items-center justify-center">
+                        <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border-2 border-white text-white text-xl transform scale-50 group-hover:scale-100 transition-transform duration-300"><i class="fa-solid fa-play ml-1"></i></div>
+                    </div>
+                </div>
+                <div class="p-6 flex-1 flex flex-col bg-white z-20">
+                    <span class="text-mt-blue text-[10px] font-extrabold uppercase tracking-widest mb-3">Visa Readiness</span>
+                    <h3 class="font-bold text-xl mb-3 text-slate-900 leading-snug group-hover:text-mt-blue transition-colors">J-1 Visa Embassy Interview Masterclass</h3>
+                    <p class="text-sm text-slate-600 mb-6 flex-1 leading-relaxed">Prepare for your U.S. consulate interview with our AI Voice Simulator, psychological tips, and required document checklists.</p>
+                    <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                        <div class="flex items-center gap-2 text-xs font-bold text-slate-500 uppercase tracking-wider">
+                            <i class="fa-regular fa-clock"></i> 2.5 Hrs
+                        </div>
+                        <span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded">Included in Plan</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 2 -->
+            <div class="course-card group">
+                <div class="img-wrapper relative">
+                    <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="absolute inset-0 bg-mt-navy/40 opacity-0 group-hover:opacity-100 transition-opacity z-10 flex items-center justify-center">
+                        <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border-2 border-white text-white text-xl transform scale-50 group-hover:scale-100 transition-transform duration-300"><i class="fa-solid fa-play ml-1"></i></div>
+                    </div>
+                </div>
+                <div class="p-6 flex-1 flex flex-col bg-white z-20">
+                    <span class="text-emerald-600 text-[10px] font-extrabold uppercase tracking-widest mb-3">English Prep</span>
+                    <h3 class="font-bold text-xl mb-3 text-slate-900 leading-snug group-hover:text-mt-blue transition-colors">Business English for Hospitality</h3>
+                    <p class="text-sm text-slate-600 mb-6 flex-1 leading-relaxed">Learn essential terminology, guest communication skills, and conflict resolution for working in luxury U.S. hotels.</p>
+                    <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                        <div class="flex items-center gap-2 text-xs font-bold text-slate-500 uppercase tracking-wider">
+                            <i class="fa-regular fa-clock"></i> 5.0 Hrs
+                        </div>
+                        <span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded">Included in Plan</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 3 -->
+            <div class="course-card group">
+                <div class="img-wrapper relative">
+                    <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1586281380349-632531db7ed4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="absolute inset-0 bg-mt-navy/40 opacity-0 group-hover:opacity-100 transition-opacity z-10 flex items-center justify-center">
+                        <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border-2 border-white text-white text-xl transform scale-50 group-hover:scale-100 transition-transform duration-300"><i class="fa-solid fa-play ml-1"></i></div>
+                    </div>
+                </div>
+                <div class="p-6 flex-1 flex flex-col bg-white z-20">
+                    <span class="text-mt-purple text-[10px] font-extrabold uppercase tracking-widest mb-3">Resume & AI</span>
+                    <h3 class="font-bold text-xl mb-3 text-slate-900 leading-snug group-hover:text-mt-blue transition-colors">American Resume Formatting</h3>
+                    <p class="text-sm text-slate-600 mb-6 flex-1 leading-relaxed">Transform your international CV into an ATS-friendly U.S. resume format that bypasses filters and gets you hired immediately.</p>
+                    <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                        <div class="flex items-center gap-2 text-xs font-bold text-slate-500 uppercase tracking-wider">
+                            <i class="fa-regular fa-clock"></i> 1.5 Hrs
+                        </div>
+                        <span class="font-extrabold text-slate-900 text-lg">$29.00</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- INSTRUCTOR CTA -->
+    <section class="py-24 px-6 relative overflow-hidden border-t border-slate-200 mt-12 bg-white">
+        <div class="absolute -left-40 top-0 w-96 h-96 bg-blue-50 rounded-full mix-blend-multiply filter blur-3xl opacity-50"></div>
+
+        <div class="max-w-4xl mx-auto bg-slate-900 text-white rounded-3xl p-12 text-center shadow-2xl relative z-10 overflow-hidden">
+            <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 32px 32px;"></div>
+            
+            <div class="w-20 h-20 bg-mt-blue/20 rounded-2xl flex items-center justify-center text-mt-blue text-4xl mx-auto mb-8">
+                <i class="fa-solid fa-chalkboard-user"></i>
+            </div>
+            <h2 class="text-3xl md:text-4xl font-extrabold mb-4 tracking-tight">Are you an Industry Expert?</h2>
+            <p class="text-slate-400 text-lg mb-10 max-w-2xl mx-auto">We are actively sourcing certified ESL teachers, immigration attorneys, and industry experts to build courses for our global candidate pool.</p>
+            <a href="#" class="inline-block bg-white text-slate-900 px-8 py-4 rounded-xl font-bold hover:bg-slate-100 transition-colors shadow-xl hover:-translate-y-1">Submit a Course Proposal</a>
+        </div>
+    </section>
+
+    
+</body>
+</html>

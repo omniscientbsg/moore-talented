@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Candidates - Moore Talented Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Jost', 'sans-serif'] },
+                    colors: {
+                        mt: {
+                            blue: '#1967d2',
+                            dark: '#0d4a9e',
+                            light: '#f0f5f7',
+                            gray: '#696969',
+                            navy: '#0f172a',
+                            accent: '#10b981',
+                            purple: '#8b5cf6'
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-gradient { background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%); position: relative; overflow: hidden; }
+        
+        .video-card { border-radius: 1rem; overflow: hidden; position: relative; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); transition: all 0.4s; }
+        .video-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,23,42,0.9) 0%, rgba(15,23,42,0.4) 50%, transparent 100%); }
+        .video-thumb { height: 450px; background-size: cover; background-position: center; transition: transform 0.7s ease; }
+        .video-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+        .video-card:hover .video-thumb { transform: scale(1.05); }
+        .play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 70px; height: 70px; background: rgba(255,255,255,0.2); backdrop-filter: blur(8px); border: 2px solid white; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 10; transition: all 0.3s; color: white; }
+        .video-card:hover .play-btn { background: #1967d2; border-color: #1967d2; transform: translate(-50%, -50%) scale(1.1); }
+        .video-info { position: absolute; bottom: 0; left: 0; width: 100%; padding: 2rem; color: white; z-index: 10; }
+
+        .feature-card { transition: all 0.3s ease; }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px -10px rgba(0,0,0,0.1); border-color: #bfdbfe; }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #1967d2; }
+    </style>
+</head>
+<body class="text-slate-800 antialiased overflow-x-hidden">
+
+    <!-- NAVIGATION -->
+    
+
+    <!-- SECTION 1: CANDIDATE HERO -->
+    <section class="hero-gradient pt-12 md:pt-10 md:pt-16 pb-24 px-6 min-h-[90vh] flex items-center">
+        <!-- Abstract Shapes -->
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-mt-blue opacity-5 clip-path-slant hidden lg:block" style="clip-path: polygon(20% 0%, 100% 0, 100% 100%, 0% 100%);"></div>
+        <div class="absolute -top-20 -right-20 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-pulse-slow"></div>
+
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10 w-full">
+            <div>
+                <div class="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full text-xs font-bold text-mt-blue tracking-widest uppercase shadow-sm border border-blue-100 mb-6">
+                    <i class="fa-solid fa-plane-departure text-mt-accent"></i> Global Talent Portal
+                </div>
+                <h1 class="text-5xl lg:text-7xl font-extrabold mb-6 leading-tight text-slate-900 tracking-tight">Your American Career <span class="text-mt-blue">Starts Here.</span></h1>
+                <p class="text-xl text-slate-600 mb-10 leading-relaxed font-light">Stop submitting resumes into the void. Create a free profile, instantly check your visa eligibility, and get directly matched with verified U.S. employers.</p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#" class="bg-mt-blue text-white px-8 py-4 rounded-xl font-bold hover:bg-mt-dark transition-all shadow-lg hover:-translate-y-1 text-center flex items-center justify-center gap-2">
+                        Start Free Profile <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="#visa-check" class="bg-white text-slate-700 border border-slate-200 px-8 py-4 rounded-xl font-bold hover:bg-slate-50 transition-all text-center flex items-center justify-center gap-2">
+                        Check Visa Eligibility
+                    </a>
+                </div>
+                <div class="mt-8 flex items-center gap-4 text-sm font-semibold text-slate-500">
+                    <div class="flex -space-x-2">
+                        <img class="w-8 h-8 rounded-full border-2 border-white" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                        <img class="w-8 h-8 rounded-full border-2 border-white" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                        <img class="w-8 h-8 rounded-full border-2 border-white" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                    </div>
+                    <span>Join 50,000+ candidates already placed.</span>
+                </div>
+            </div>
+
+            <!-- Visa Eligibility Interactive UI Mockup -->
+            <div class="relative animate-float hidden lg:block">
+                <div class="bg-white rounded-2xl shadow-2xl border border-slate-100 p-8 relative z-10">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+                        <h3 class="font-bold text-slate-900 text-lg flex items-center gap-2"><i class="fa-solid fa-passport text-mt-blue"></i> Fast Eligibility Check</h3>
+                        <span class="text-xs font-bold bg-green-100 text-green-700 px-2 py-1 rounded">Takes 30 secs</span>
+                    </div>
+                    <form class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Current Status</label>
+                            <select class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm text-slate-700 outline-none focus:border-mt-blue focus:ring-1 focus:ring-mt-blue">
+                                <option>University Student (Full-time)</option>
+                                <option>Recent Graduate (Under 12 months)</option>
+                                <option>Professional (1+ years experience)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Industry / Field of Study</label>
+                            <select class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm text-slate-700 outline-none focus:border-mt-blue focus:ring-1 focus:ring-mt-blue">
+                                <option>Hospitality & Tourism</option>
+                                <option>Engineering & IT</option>
+                                <option>Business & Finance</option>
+                                <option>Architecture</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-500 uppercase mb-2">English Proficiency</label>
+                            <select class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm text-slate-700 outline-none focus:border-mt-blue focus:ring-1 focus:ring-mt-blue">
+                                <option>Fluent / Advanced</option>
+                                <option>Intermediate</option>
+                                <option>Basic</option>
+                            </select>
+                        </div>
+                        <button type="button" class="w-full bg-mt-dark text-white font-bold py-4 rounded-xl mt-2 hover:bg-slate-900 transition-colors shadow-md">
+                            Check My Options
+                        </button>
+                    </form>
+                </div>
+                <!-- Decor cards -->
+                <div class="absolute -right-6 top-20 bg-white p-4 rounded-xl shadow-xl border border-slate-100 flex items-center gap-3 z-20">
+                    <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600"><i class="fa-solid fa-check"></i></div>
+                    <div>
+                        <div class="text-xs text-slate-500 font-bold uppercase">Result</div>
+                        <div class="text-sm font-extrabold text-slate-900">J-1 Intern Eligible</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: J-1 VISA CATEGORIES -->
+    <section class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-mt-blue font-bold tracking-widest uppercase text-xs mb-3 block">Understanding The Visa</span>
+                <h2 class="text-4xl font-extrabold mb-6 text-slate-900 tracking-tight">What is the J-1 Exchange Visa?</h2>
+                <p class="text-slate-600 text-lg leading-relaxed">The J-1 Visa is a non-immigrant visa issued by the United States to approved exchange visitors. At Moore Talented, we secure sponsorships and placements across four distinct categories.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Category 1 -->
+                <div class="feature-card bg-white p-8 rounded-2xl border border-slate-100 shadow-sm relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-blue-50 rounded-bl-full -z-10 group-hover:bg-mt-blue transition-colors duration-500"></div>
+                    <div class="w-12 h-12 bg-white shadow-sm border border-slate-100 rounded-xl flex items-center justify-center text-mt-blue text-xl mb-6 group-hover:text-white group-hover:bg-mt-blue transition-colors">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Interns</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6">For current university students or those who graduated within the last 12 months seeking practical experience in their academic field.</p>
+                    <div class="mt-auto border-t border-slate-100 pt-4 flex justify-between items-center text-xs font-bold">
+                        <span class="text-slate-400 uppercase">Duration</span>
+                        <span class="text-mt-blue">Up to 12 Months</span>
+                    </div>
+                </div>
+
+                <!-- Category 2 -->
+                <div class="feature-card bg-white p-8 rounded-2xl border border-slate-100 shadow-sm relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-blue-50 rounded-bl-full -z-10 group-hover:bg-mt-blue transition-colors duration-500"></div>
+                    <div class="w-12 h-12 bg-white shadow-sm border border-slate-100 rounded-xl flex items-center justify-center text-mt-blue text-xl mb-6 group-hover:text-white group-hover:bg-mt-blue transition-colors">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Trainees</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6">For professionals with a degree and 1 year of experience, or 5 years of relevant occupational experience without a degree.</p>
+                    <div class="mt-auto border-t border-slate-100 pt-4 flex justify-between items-center text-xs font-bold">
+                        <span class="text-slate-400 uppercase">Duration</span>
+                        <span class="text-mt-blue">Up to 18 Months</span>
+                    </div>
+                </div>
+
+                <!-- Category 3 -->
+                <div class="feature-card bg-white p-8 rounded-2xl border border-slate-100 shadow-sm relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-blue-50 rounded-bl-full -z-10 group-hover:bg-mt-blue transition-colors duration-500"></div>
+                    <div class="w-12 h-12 bg-white shadow-sm border border-slate-100 rounded-xl flex items-center justify-center text-mt-blue text-xl mb-6 group-hover:text-white group-hover:bg-mt-blue transition-colors">
+                        <i class="fa-solid fa-umbrella-beach"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Work & Travel</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6">For full-time university students looking to work seasonal jobs in the U.S. during their official summer break.</p>
+                    <div class="mt-auto border-t border-slate-100 pt-4 flex justify-between items-center text-xs font-bold">
+                        <span class="text-slate-400 uppercase">Duration</span>
+                        <span class="text-mt-blue">3 to 4 Months</span>
+                    </div>
+                </div>
+
+                <!-- Category 4 -->
+                <div class="feature-card bg-white p-8 rounded-2xl border border-slate-100 shadow-sm relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-blue-50 rounded-bl-full -z-10 group-hover:bg-mt-blue transition-colors duration-500"></div>
+                    <div class="w-12 h-12 bg-white shadow-sm border border-slate-100 rounded-xl flex items-center justify-center text-mt-blue text-xl mb-6 group-hover:text-white group-hover:bg-mt-blue transition-colors">
+                        <i class="fa-solid fa-campground"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Camp Counselor</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6">For youth workers, students, or teachers wanting to share their culture with American youth at summer camps.</p>
+                    <div class="mt-auto border-t border-slate-100 pt-4 flex justify-between items-center text-xs font-bold">
+                        <span class="text-slate-400 uppercase">Duration</span>
+                        <span class="text-mt-blue">Summer Season</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: AI RESUME BUILDER -->
+    <section class="py-24 bg-slate-900 overflow-hidden relative">
+        <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#4f46e5 1px, transparent 1px); background-size: 40px 40px;"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-16 relative z-10">
+            <!-- Mockup UI -->
+            <div class="flex-1 w-full relative">
+                <div class="bg-slate-800 border border-slate-700 rounded-2xl shadow-2xl p-6 md:p-8 transform -rotate-2 hover:rotate-0 transition-transform duration-500">
+                    <div class="flex justify-between items-center border-b border-slate-700 pb-4 mb-6">
+                        <div class="font-bold text-white flex items-center gap-2"><i class="fa-solid fa-wand-magic-sparkles text-mt-purple"></i> AI Resume Engine</div>
+                        <div class="bg-purple-500/20 text-purple-300 border border-purple-500/30 text-xs font-bold px-3 py-1 rounded-full animate-pulse">Processing...</div>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-6 mb-2">
+                        <!-- Old CV -->
+                        <div class="sm:w-1/3 bg-slate-700/50 rounded-xl p-4 border border-slate-600 flex flex-col items-center justify-center text-center opacity-70">
+                            <i class="fa-regular fa-file-pdf text-4xl text-slate-400 mb-3"></i>
+                            <div class="text-xs text-slate-300 font-bold mb-1">local_cv_final.pdf</div>
+                            <div class="text-[10px] text-slate-500">Non-ATS Compliant</div>
+                        </div>
+                        
+                        <!-- AI processing -->
+                        <div class="flex items-center justify-center text-mt-purple py-4">
+                            <i class="fa-solid fa-angles-right text-3xl hidden sm:block"></i>
+                            <i class="fa-solid fa-angles-down text-3xl sm:hidden"></i>
+                        </div>
+                        
+                        <!-- New Resume -->
+                        <div class="sm:w-1/2 bg-white rounded-xl p-5 shadow-inner">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 bg-slate-200 rounded-full"></div>
+                                <div>
+                                    <div class="h-3 bg-slate-800 w-24 rounded mb-1.5"></div>
+                                    <div class="h-2 bg-slate-300 w-32 rounded"></div>
+                                </div>
+                            </div>
+                            <div class="space-y-2 mb-4">
+                                <div class="h-2 bg-slate-200 w-full rounded"></div>
+                                <div class="h-2 bg-slate-200 w-full rounded"></div>
+                                <div class="h-2 bg-slate-200 w-3/4 rounded"></div>
+                            </div>
+                            <div class="text-[10px] text-purple-700 font-bold bg-purple-50 border border-purple-100 inline-block px-2 py-1 rounded shadow-sm">
+                                <i class="fa-solid fa-check text-green-500"></i> U.S. Format Standardized
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex-1">
+                <span class="text-mt-purple font-bold tracking-widest uppercase text-xs mb-3 block">Platform Feature</span>
+                <h2 class="text-4xl font-extrabold mb-6 text-white tracking-tight">The AI Resume Builder</h2>
+                <p class="text-slate-300 text-lg mb-8 leading-relaxed">Stop getting automatically rejected by Applicant Tracking Systems (ATS). Our AI extracts data from your local CV and instantly rebuilds it into the perfect, standardized format that U.S. employers expect.</p>
+                
+                <div class="space-y-6">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-mt-purple shrink-0 mt-1"><i class="fa-solid fa-bolt"></i></div>
+                        <div>
+                            <h4 class="text-white font-bold mb-1">Instant ATS Optimization</h4>
+                            <p class="text-sm text-slate-400">Guarantees your resume parses correctly in U.S. corporate systems.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-mt-purple shrink-0 mt-1"><i class="fa-solid fa-language"></i></div>
+                        <div>
+                            <h4 class="text-white font-bold mb-1">Title Translation</h4>
+                            <p class="text-sm text-slate-400">Automatically translates international job titles to their American equivalents.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-mt-purple shrink-0 mt-1"><i class="fa-solid fa-passport"></i></div>
+                        <div>
+                            <h4 class="text-white font-bold mb-1">Visa Prominence</h4>
+                            <p class="text-sm text-slate-400">Highlights your J-1 Visa eligibility prominently to reassure employers of your compliance.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: CANDIDATE SUCCESS VIDEOS -->
+    <section class="py-24 bg-slate-50 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-mt-blue font-bold tracking-widest uppercase text-xs mb-3 block">Testimonials</span>
+                <h2 class="text-4xl font-extrabold mb-4 text-slate-900 tracking-tight">Hear From Our Candidates</h2>
+                <p class="text-slate-600 text-lg">Real stories of professionals who successfully relocated to the United States using Moore Talented.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Video 1 -->
+                <div class="video-card group">
+                    <div class="video-thumb" style="background-image: url('https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="play-btn"><i class="fa-solid fa-play ml-1 text-xl"></i></div>
+                    <div class="video-info">
+                        <h4 class="font-bold text-2xl mb-2 text-white">Maria's Journey</h4>
+                        <p class="text-sm text-blue-200 font-medium">From Brazil to Miami Hospitality</p>
+                        <div class="mt-4 flex gap-2">
+                            <span class="text-[10px] font-bold uppercase bg-white/20 px-2 py-1 rounded backdrop-blur-md">J-1 Trainee</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video 2 -->
+                <div class="video-card group">
+                    <div class="video-thumb" style="background-image: url('https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="play-btn"><i class="fa-solid fa-play ml-1 text-xl"></i></div>
+                    <div class="video-info">
+                        <h4 class="font-bold text-2xl mb-2 text-white">Liam's Story</h4>
+                        <p class="text-sm text-blue-200 font-medium">Engineering Intern in Silicon Valley</p>
+                        <div class="mt-4 flex gap-2">
+                            <span class="text-[10px] font-bold uppercase bg-white/20 px-2 py-1 rounded backdrop-blur-md">J-1 Intern</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video 3 -->
+                <div class="video-card group">
+                    <div class="video-thumb" style="background-image: url('https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="play-btn"><i class="fa-solid fa-play ml-1 text-xl"></i></div>
+                    <div class="video-info">
+                        <h4 class="font-bold text-2xl mb-2 text-white">Aisha's Experience</h4>
+                        <p class="text-sm text-blue-200 font-medium">Summer Camp Counselor in Maine</p>
+                        <div class="mt-4 flex gap-2">
+                            <span class="text-[10px] font-bold uppercase bg-white/20 px-2 py-1 rounded backdrop-blur-md">Camp Counselor</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    
+
+    
+</body>
+</html>

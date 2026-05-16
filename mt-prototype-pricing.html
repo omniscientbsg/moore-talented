@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - Moore Talented Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Jost', 'sans-serif'] },
+                    colors: {
+                        mt: {
+                            blue: '#1967d2',
+                            dark: '#0d4a9e',
+                            light: '#f0f5f7',
+                            gray: '#696969',
+                            navy: '#0f172a',
+                            accent: '#10b981'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .pricing-hero { background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%); }
+        
+        .pricing-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            border: 1px solid #f1f5f9;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .pricing-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px -12px rgba(25, 103, 210, 0.15);
+            border-color: #bfdbfe;
+        }
+        .pricing-card.popular {
+            border: 2px solid #1967d2;
+            box-shadow: 0 20px 40px -10px rgba(25,103,210,0.2);
+            transform: scale(1.05);
+            z-index: 10;
+        }
+        .pricing-card.popular:hover {
+            transform: scale(1.05) translateY(-8px);
+        }
+        @media (max-width: 1024px) {
+            .pricing-card.popular { transform: scale(1); z-index: 1; }
+            .pricing-card.popular:hover { transform: translateY(-8px); }
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1967d2;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 6px 20px;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(25, 103, 210, 0.3);
+        }
+
+        /* Toggle Switch */
+        .toggle-container {
+            display: inline-flex;
+            background: white;
+            padding: 6px;
+            border-radius: 9999px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+            position: relative;
+            z-index: 20;
+        }
+        .toggle-btn {
+            padding: 12px 32px;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            z-index: 2;
+            position: relative;
+        }
+        .toggle-btn.active {
+            color: white;
+        }
+        .toggle-btn.inactive {
+            color: #64748b;
+        }
+        .toggle-btn.inactive:hover {
+            color: #1967d2;
+        }
+        .toggle-slider {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            bottom: 6px;
+            width: calc(50% - 6px);
+            background: #1967d2;
+            border-radius: 9999px;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 6px -1px rgba(25, 103, 210, 0.4);
+            z-index: 1;
+        }
+        .employer-mode .toggle-slider { transform: translateX(0); }
+        .candidate-mode .toggle-slider { transform: translateX(100%); width: calc(50% - 6px); } /* Assuming equal width tabs */
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #1967d2; }
+    </style>
+</head>
+<body class="text-slate-800 antialiased overflow-x-hidden bg-slate-50 employer-mode" id="body-context">
+
+    <!-- NAVIGATION -->
+    
+
+    <!-- HEADER & TOGGLE -->
+    <div class="pricing-hero pt-12 md:pt-10 md:pt-16 pb-24 px-6 relative overflow-hidden">
+        <!-- Decor -->
+        <div class="absolute -top-20 -left-20 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50"></div>
+        <div class="absolute -bottom-20 -right-20 w-96 h-96 bg-teal-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50"></div>
+
+        <div class="max-w-3xl mx-auto text-center relative z-10">
+            <span class="text-mt-blue font-bold tracking-widest uppercase text-xs mb-4 block">Transparent Plans</span>
+            <h1 class="text-5xl lg:text-6xl font-extrabold mb-6 text-slate-900 tracking-tight">Invest in Global Talent.</h1>
+            <p class="text-xl text-slate-600 mb-12 font-light">Whether you're hiring a single seasonal intern or staffing a massive luxury resort, our AI-powered platform scales with your operational needs.</p>
+            
+            <!-- Interactive Toggle (Mockup) -->
+            <div class="toggle-container" onclick="toggleContext()">
+                <div class="toggle-slider"></div>
+                <div class="toggle-btn active" id="btn-employer"><i class="fa-solid fa-building mr-2"></i> For Employers</div>
+                <div class="toggle-btn inactive" id="btn-candidate"><i class="fa-solid fa-user-graduate mr-2"></i> For Candidates</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRICING CARDS -->
+    <div class="max-w-7xl mx-auto px-6 -mt-12 relative z-20 pb-24">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center" id="employer-plans">
+            
+            <!-- Tier 1 -->
+            <div class="pricing-card">
+                <div class="mb-6">
+                    <div class="w-12 h-12 bg-slate-100 text-slate-600 rounded-xl flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-2">Standard Posting</h3>
+                    <p class="text-sm text-slate-500 min-h-[40px]">Perfect for small businesses looking for 1-3 seasonal hires without complex compliance needs.</p>
+                </div>
+                
+                <div class="mb-6 pb-6 border-b border-slate-100">
+                    <div class="flex items-end gap-1">
+                        <span class="text-4xl font-extrabold text-slate-900">$299</span>
+                        <span class="text-slate-500 font-medium mb-1">/ post</span>
+                    </div>
+                </div>
+                
+                <div class="flex-1 mb-8">
+                    <p class="text-xs font-bold text-slate-900 mb-4 uppercase tracking-widest">What's included</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3 text-sm text-slate-600">
+                            <i class="fa-solid fa-check text-mt-accent mt-1"></i>
+                            <span>30-day active job listing on global portal</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm text-slate-600">
+                            <i class="fa-solid fa-check text-mt-accent mt-1"></i>
+                            <span>Basic AI Candidate Matching (Top 10)</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm text-slate-600">
+                            <i class="fa-solid fa-check text-mt-accent mt-1"></i>
+                            <span>Direct applicant messaging</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm text-slate-400 opacity-50">
+                            <i class="fa-solid fa-xmark text-slate-300 mt-1"></i>
+                            <span>Dedicated Visa Compliance Officer</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm text-slate-400 opacity-50">
+                            <i class="fa-solid fa-xmark text-slate-300 mt-1"></i>
+                            <span>Pre-arrival Upskill training</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <button class="w-full border-2 border-slate-200 text-slate-700 font-bold py-4 rounded-xl hover:bg-slate-50 hover:border-slate-300 transition-colors mt-auto">Post a Job Now</button>
+            </div>
+
+            <!-- Tier 2 (Popular) -->
+            <div class="pricing-card popular bg-white">
+                <div class="popular-badge">Most Popular</div>
+                <div class="mb-6">
+                    <div class="w-12 h-12 bg-blue-50 text-mt-blue rounded-xl flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid fa-rocket"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-2">Growth Subscription</h3>
+                    <p class="text-sm text-slate-500 min-h-[40px]">For medium resorts and companies hiring multiple J-1 participants annually.</p>
+                </div>
+                
+                <div class="mb-6 pb-6 border-b border-slate-100">
+                    <div class="flex items-end gap-1">
+                        <span class="text-5xl font-extrabold text-mt-blue">$899</span>
+                        <span class="text-slate-500 font-medium mb-1.5">/ month</span>
+                    </div>
+                    <p class="text-xs text-mt-blue font-semibold mt-2">Billed annually at $10,788</p>
+                </div>
+                
+                <div class="flex-1 mb-8">
+                    <p class="text-xs font-bold text-slate-900 mb-4 uppercase tracking-widest">Everything in Standard, plus:</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3 text-sm font-semibold text-slate-800">
+                            <i class="fa-solid fa-check text-mt-blue mt-1"></i>
+                            <span>Unlimited active job postings</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm font-semibold text-slate-800">
+                            <i class="fa-solid fa-check text-mt-blue mt-1"></i>
+                            <span>Advanced AI Match scoring & ranking</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm font-semibold text-slate-800">
+                            <i class="fa-solid fa-check text-mt-blue mt-1"></i>
+                            <span>Automated Visa Eligibility screening</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm font-semibold text-slate-800">
+                            <i class="fa-solid fa-check text-mt-blue mt-1"></i>
+                            <span>Dedicated Visa Compliance Officer</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm font-semibold text-slate-800">
+                            <i class="fa-solid fa-check text-mt-blue mt-1"></i>
+                            <span>Basic Pre-arrival Upskill modules</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <button class="w-full bg-mt-blue text-white font-bold py-4 rounded-xl hover:bg-mt-dark transition-all shadow-lg shadow-blue-200 mt-auto hover:-translate-y-0.5">Start 14-Day Free Trial</button>
+            </div>
+
+            <!-- Tier 3 -->
+            <div class="pricing-card bg-slate-900 border-slate-800 text-white">
+                <div class="mb-6">
+                    <div class="w-12 h-12 bg-white/10 text-white rounded-xl flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid fa-building-shield"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">Enterprise Partner</h3>
+                    <p class="text-sm text-slate-400 min-h-[40px]">Custom white-glove recruitment and massive scale J-1 placements for hospitality groups.</p>
+                </div>
+                
+                <div class="mb-6 pb-6 border-b border-slate-700">
+                    <div class="flex items-center h-[52px]">
+                        <span class="text-4xl font-extrabold text-white">Custom Quoted</span>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-2">Volume-based pricing structure</p>
+                </div>
+                
+                <div class="flex-1 mb-8">
+                    <p class="text-xs font-bold text-slate-300 mb-4 uppercase tracking-widest">Everything in Growth, plus:</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3 text-sm text-slate-300">
+                            <i class="fa-solid fa-check text-green-400 mt-1"></i>
+                            <span>Dedicated on-the-ground recruitment fairs</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm text-slate-300">
+                            <i class="fa-solid fa-check text-green-400 mt-1"></i>
+                            <span>Custom branded onboarding portals</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm text-slate-300">
+                            <i class="fa-solid fa-check text-green-400 mt-1"></i>
+                            <span>Post-arrival housing assistance & routing</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm text-slate-300">
+                            <i class="fa-solid fa-check text-green-400 mt-1"></i>
+                            <span>API integration with your existing ATS</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <button class="w-full bg-white text-slate-900 font-bold py-4 rounded-xl hover:bg-slate-100 transition-colors mt-auto">Contact Sales Team</button>
+            </div>
+
+        </div>
+
+        <!-- Hidden Candidate Plans (Mockup functionality) -->
+        <div class="hidden text-center py-20" id="candidate-plans">
+            <div class="inline-flex items-center justify-center w-20 h-20 bg-green-100 text-green-600 rounded-full mb-6 text-3xl">
+                <i class="fa-solid fa-gift"></i>
+            </div>
+            <h2 class="text-3xl font-bold text-slate-900 mb-4">Creating a Profile is 100% Free</h2>
+            <p class="text-slate-600 max-w-lg mx-auto text-lg mb-8">Candidates never pay to browse jobs or get matched with employers. You only pay standard visa processing and placement fees once an offer is accepted.</p>
+            <a href="#" class="bg-mt-blue text-white px-8 py-4 rounded-xl font-bold inline-block hover:bg-mt-dark transition-all shadow-lg">Create Free Profile</a>
+        </div>
+
+    </div>
+
+    <!-- FAQ SECTION -->
+    <section class="py-24 bg-white border-t border-slate-100">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-slate-900">Frequently Asked Questions</h2>
+            </div>
+            
+            <div class="space-y-6">
+                <!-- FAQ Item -->
+                <div class="border border-slate-200 rounded-xl p-6 hover:border-mt-blue transition-colors">
+                    <h4 class="text-lg font-bold text-slate-900 mb-2">Are there hidden visa processing fees?</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">No. Our Enterprise and Growth plans include the facilitation of the DS-2019. The actual SEVIS and Embassy fees are typically paid by the candidate or subsidized depending on your specific hiring agreement.</p>
+                </div>
+                <!-- FAQ Item -->
+                <div class="border border-slate-200 rounded-xl p-6 hover:border-mt-blue transition-colors">
+                    <h4 class="text-lg font-bold text-slate-900 mb-2">Can I cancel my Growth Subscription at any time?</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Yes, if you choose the monthly billing option, you can cancel or pause your subscription at any time. Annual contracts receive a 20% discount but require a 12-month commitment.</p>
+                </div>
+                <!-- FAQ Item -->
+                <div class="border border-slate-200 rounded-xl p-6 hover:border-mt-blue transition-colors">
+                    <h4 class="text-lg font-bold text-slate-900 mb-2">How accurate is the AI Candidate Match?</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Highly accurate. Our engine analyzes 40+ data points including past experience, English proficiency, visa readiness, and cultural aptitude scores to ensure a 92% retention rate.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER (Simplified for Prototype) -->
+    
+
+    <script>
+        // Simple JS for the Toggle Mockup
+        function toggleContext() {
+            const body = document.getElementById('body-context');
+            const empBtn = document.getElementById('btn-employer');
+            const canBtn = document.getElementById('btn-candidate');
+            const empPlans = document.getElementById('employer-plans');
+            const canPlans = document.getElementById('candidate-plans');
+
+            if (body.classList.contains('employer-mode')) {
+                body.classList.remove('employer-mode');
+                body.classList.add('candidate-mode');
+                empBtn.classList.remove('active');
+                empBtn.classList.add('inactive');
+                canBtn.classList.remove('inactive');
+                canBtn.classList.add('active');
+                empPlans.classList.add('hidden');
+                canPlans.classList.remove('hidden');
+            } else {
+                body.classList.remove('candidate-mode');
+                body.classList.add('employer-mode');
+                canBtn.classList.remove('active');
+                canBtn.classList.add('inactive');
+                empBtn.classList.remove('inactive');
+                empBtn.classList.add('active');
+                canPlans.classList.add('hidden');
+                empPlans.classList.remove('hidden');
+            }
+        }
+
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 10) {
+                nav.classList.add('shadow-md');
+                nav.classList.remove('py-4');
+                nav.classList.add('py-2');
+            } else {
+                nav.classList.remove('shadow-md');
+                nav.classList.remove('py-2');
+                nav.classList.add('py-4');
+            }
+        });
+    </script>
+</body>
+</html>

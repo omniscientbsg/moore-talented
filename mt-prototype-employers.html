@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Employers - Moore Talented Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Jost', 'sans-serif'] },
+                    colors: {
+                        mt: {
+                            blue: '#1967d2',
+                            dark: '#0d4a9e',
+                            light: '#f0f5f7',
+                            gray: '#696969',
+                            navy: '#0f172a',
+                            accent: '#10b981',
+                            employer: '#0f172a'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-employer { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); position: relative; overflow: hidden; }
+        
+        .stat-card { transition: transform 0.3s ease; }
+        .stat-card:hover { transform: translateY(-5px); }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #1967d2; }
+    </style>
+</head>
+<body class="text-slate-800 antialiased overflow-x-hidden">
+
+    <!-- NAVIGATION -->
+    
+
+    <!-- SECTION 1: EMPLOYER HERO -->
+    <section class="hero-employer pt-12 md:pt-10 md:pt-16 pb-24 px-6 min-h-[85vh] flex items-center text-white">
+        <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#3b82f6 1px, transparent 1px); background-size: 30px 30px;"></div>
+        
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10 w-full">
+            <div>
+                <div class="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full text-xs font-bold text-blue-300 tracking-widest uppercase border border-white/20 mb-6 backdrop-blur-md">
+                    <i class="fa-solid fa-building"></i> B2B Talent Solutions
+                </div>
+                <h1 class="text-5xl lg:text-7xl font-extrabold mb-6 leading-tight tracking-tight">Hire Exceptional <span class="text-mt-blue">Global Talent.</span></h1>
+                <p class="text-xl text-slate-300 mb-10 leading-relaxed font-light">Access a pre-screened international pipeline. We handle the AI matching, cultural training, and the strict J-1 visa compliance so you can focus on your business.</p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#" class="bg-mt-blue text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-600 transition-all shadow-lg hover:-translate-y-1 text-center flex items-center justify-center gap-2">
+                        Become a Host Employer <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- UI Mockup -->
+            <div class="relative hidden lg:block">
+                <div class="bg-white rounded-2xl shadow-2xl p-6 text-slate-800 transform rotate-2 hover:rotate-0 transition-transform duration-500">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-4">
+                        <div class="font-bold text-lg"><i class="fa-solid fa-users text-mt-blue mr-2"></i> Talent Pipeline</div>
+                        <span class="text-xs font-bold bg-blue-50 text-mt-blue px-3 py-1 rounded-full">3 New Matches</span>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <!-- Candidate 1 -->
+                        <div class="flex items-center justify-between p-3 border border-slate-100 rounded-xl hover:bg-slate-50 transition-colors cursor-pointer">
+                            <div class="flex items-center gap-4">
+                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" class="w-12 h-12 rounded-full">
+                                <div>
+                                    <div class="font-bold text-sm">Sofia M.</div>
+                                    <div class="text-xs text-slate-500">Software Engineer • Spain</div>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded">98% Match</div>
+                                <div class="text-[10px] text-slate-400 mt-1">Visa Ready</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Candidate 2 -->
+                        <div class="flex items-center justify-between p-3 border border-slate-100 rounded-xl hover:bg-slate-50 transition-colors cursor-pointer">
+                            <div class="flex items-center gap-4">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" class="w-12 h-12 rounded-full">
+                                <div>
+                                    <div class="font-bold text-sm">Alejandro C.</div>
+                                    <div class="text-xs text-slate-500">Hospitality • Mexico</div>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded">95% Match</div>
+                                <div class="text-[10px] text-slate-400 mt-1">Pending DS-2019</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="w-full mt-4 bg-slate-50 text-mt-blue text-sm font-bold py-3 rounded-lg border border-slate-200 hover:bg-slate-100 transition-colors">View All Pipeline</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: METRICS -->
+    <section class="py-16 bg-white border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="stat-card text-center p-6 bg-slate-50 rounded-2xl border border-slate-100">
+                <div class="text-4xl font-extrabold text-mt-blue mb-2">14 Days</div>
+                <div class="text-sm font-bold text-slate-500 uppercase">Avg Time to Fill</div>
+            </div>
+            <div class="stat-card text-center p-6 bg-slate-50 rounded-2xl border border-slate-100">
+                <div class="text-4xl font-extrabold text-mt-blue mb-2">100%</div>
+                <div class="text-sm font-bold text-slate-500 uppercase">Compliance Managed</div>
+            </div>
+            <div class="stat-card text-center p-6 bg-slate-50 rounded-2xl border border-slate-100">
+                <div class="text-4xl font-extrabold text-mt-blue mb-2">92%</div>
+                <div class="text-sm font-bold text-slate-500 uppercase">Retention Rate</div>
+            </div>
+            <div class="stat-card text-center p-6 bg-slate-50 rounded-2xl border border-slate-100">
+                <div class="text-4xl font-extrabold text-mt-blue mb-2">Zero</div>
+                <div class="text-sm font-bold text-slate-500 uppercase">Upfront Visa Fees</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: EMPLOYER BENEFITS -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-mt-blue font-bold tracking-widest uppercase text-xs mb-3 block">Why Partner With Us</span>
+                <h2 class="text-4xl font-extrabold mb-6 text-slate-900 tracking-tight">Built for HR and Operations</h2>
+                <p class="text-slate-600 text-lg">We've engineered the Moore Talented platform to eliminate the friction, risk, and delays of international hiring.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Benefit 1 -->
+                <div class="p-8 bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-xl transition-shadow group">
+                    <div class="w-14 h-14 bg-blue-50 text-mt-blue rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-mt-blue group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-slate-900">AI-Powered Shortlists</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">Stop filtering through thousands of unqualified resumes. Our matching engine reads your job description and instantly delivers a ranked shortlist of culturally-aligned candidates.</p>
+                </div>
+                
+                <!-- Benefit 2 -->
+                <div class="p-8 bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-xl transition-shadow group">
+                    <div class="w-14 h-14 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-file-shield"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-slate-900">End-to-End Compliance</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">We are experts in J-1 regulations. From DS-2019 issuance to SEVIS tracking, our legal and compliance teams handle all Department of State requirements.</p>
+                </div>
+
+                <!-- Benefit 3 -->
+                <div class="p-8 bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-xl transition-shadow group">
+                    <div class="w-14 h-14 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-purple-600 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-slate-900">Pre-Arrival Upskilling</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">Before candidates step foot in your office, they complete mandatory AI-driven training modules covering U.S. workplace culture, communication, and industry standards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    
+</body>
+</html>
