@@ -136,12 +136,12 @@
     <!-- HEADER & TOGGLE -->
     <div class="pricing-hero pt-12 md:pt-10 md:pt-16 pb-24 px-6 relative overflow-hidden">
         <!-- Decor -->
-        <div class="absolute -top-20 -left-20 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50"></div>
-        <div class="absolute -bottom-20 -right-20 w-96 h-96 bg-teal-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50"></div>
+        <div class="absolute -top-20 -left-20 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50 hidden md:block"></div>
+        <div class="absolute -bottom-20 -right-20 w-96 h-96 bg-teal-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50 hidden md:block"></div>
 
         <div class="max-w-3xl mx-auto text-center relative z-10">
             <span class="text-mt-blue font-bold tracking-widest uppercase text-xs mb-4 block">Transparent Plans</span>
-            <h1 class="text-5xl lg:text-6xl font-extrabold mb-6 text-slate-900 tracking-tight">Invest in Global Talent.</h1>
+            <h1 class="text-3xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-slate-900 tracking-tight">Invest in Global Talent.</h1>
             <p class="text-xl text-slate-600 mb-12 font-light">Whether you're hiring a single seasonal intern or staffing a massive luxury resort, our AI-powered platform scales with your operational needs.</p>
             
             <!-- Interactive Toggle (Mockup) -->
@@ -156,7 +156,7 @@
     <!-- PRICING CARDS -->
     <div class="max-w-7xl mx-auto px-6 -mt-12 relative z-20 pb-24">
         
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center" id="employer-plans">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 md:gap-8 items-center" id="employer-plans">
             
             <!-- Tier 1 -->
             <div class="pricing-card">
@@ -170,7 +170,7 @@
                 
                 <div class="mb-6 pb-6 border-b border-slate-100">
                     <div class="flex items-end gap-1">
-                        <span class="text-4xl font-extrabold text-slate-900">$299</span>
+                        <span class="text-3xl md:text-4xl font-extrabold text-slate-900">$299</span>
                         <span class="text-slate-500 font-medium mb-1">/ post</span>
                     </div>
                 </div>
@@ -217,7 +217,7 @@
                 
                 <div class="mb-6 pb-6 border-b border-slate-100">
                     <div class="flex items-end gap-1">
-                        <span class="text-5xl font-extrabold text-mt-blue">$899</span>
+                        <span class="text-4xl md:text-5xl font-extrabold text-mt-blue">$899</span>
                         <span class="text-slate-500 font-medium mb-1.5">/ month</span>
                     </div>
                     <p class="text-xs text-mt-blue font-semibold mt-2">Billed annually at $10,788</p>
@@ -264,7 +264,7 @@
                 
                 <div class="mb-6 pb-6 border-b border-slate-700">
                     <div class="flex items-center h-[52px]">
-                        <span class="text-4xl font-extrabold text-white">Custom Quoted</span>
+                        <span class="text-3xl md:text-4xl font-extrabold text-white">Custom Quoted</span>
                     </div>
                     <p class="text-xs text-slate-400 mt-2">Volume-based pricing structure</p>
                 </div>
@@ -297,7 +297,7 @@
         </div>
 
         <!-- Hidden Candidate Plans (Mockup functionality) -->
-        <div class="hidden text-center py-20" id="candidate-plans">
+        <div class="hidden text-center py-10 md:py-20" id="candidate-plans">
             <div class="inline-flex items-center justify-center w-20 h-20 bg-green-100 text-green-600 rounded-full mb-6 text-3xl">
                 <i class="fa-solid fa-gift"></i>
             </div>
@@ -309,7 +309,7 @@
     </div>
 
     <!-- FAQ SECTION -->
-    <section class="py-24 bg-white border-t border-slate-100">
+    <section class="py-12 md:py-24 bg-white border-t border-slate-100">
         <div class="max-w-4xl mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-extrabold text-slate-900">Frequently Asked Questions</h2>
@@ -317,17 +317,17 @@
             
             <div class="space-y-6">
                 <!-- FAQ Item -->
-                <div class="border border-slate-200 rounded-xl p-6 hover:border-mt-blue transition-colors">
+                <div class="border border-slate-200 rounded-xl p-4 md:p-6 hover:border-mt-blue transition-colors">
                     <h4 class="text-lg font-bold text-slate-900 mb-2">Are there hidden visa processing fees?</h4>
                     <p class="text-slate-600 text-sm leading-relaxed">No. Our Enterprise and Growth plans include the facilitation of the DS-2019. The actual SEVIS and Embassy fees are typically paid by the candidate or subsidized depending on your specific hiring agreement.</p>
                 </div>
                 <!-- FAQ Item -->
-                <div class="border border-slate-200 rounded-xl p-6 hover:border-mt-blue transition-colors">
+                <div class="border border-slate-200 rounded-xl p-4 md:p-6 hover:border-mt-blue transition-colors">
                     <h4 class="text-lg font-bold text-slate-900 mb-2">Can I cancel my Growth Subscription at any time?</h4>
                     <p class="text-slate-600 text-sm leading-relaxed">Yes, if you choose the monthly billing option, you can cancel or pause your subscription at any time. Annual contracts receive a 20% discount but require a 12-month commitment.</p>
                 </div>
                 <!-- FAQ Item -->
-                <div class="border border-slate-200 rounded-xl p-6 hover:border-mt-blue transition-colors">
+                <div class="border border-slate-200 rounded-xl p-4 md:p-6 hover:border-mt-blue transition-colors">
                     <h4 class="text-lg font-bold text-slate-900 mb-2">How accurate is the AI Candidate Match?</h4>
                     <p class="text-slate-600 text-sm leading-relaxed">Highly accurate. Our engine analyzes 40+ data points including past experience, English proficiency, visa readiness, and cultural aptitude scores to ensure a 92% retention rate.</p>
                 </div>
